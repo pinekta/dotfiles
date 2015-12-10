@@ -1,0 +1,56 @@
+### Sample Settings
+
+# aliases
+# in this example you can open extensions page by the command ':ext'
+# and Chrome's option page by the command ':option'
+alias ext TabOpenNew chrome://extensions/
+alias option TabOpenNew chrome://settings/browser
+alias downloads TabOpenNew chrome://downloads
+alias history TabOpenNew chrome://history
+
+# mappings for opening your favorite web page
+nmap <Space>tw :TabOpenNew http://www.twitter.com
+nmap <Space>fb :TabOpenNew https://ja-jp.facebook.com/
+nmap <Space>gr :TabOpenNew http://www.google.com/reader
+nmap <Space>m  :TabOpenNew https://mail.google.com/mail/#inbox
+nmap <Space>atwdb :TabOpenNew http://192.168.20.98
+nmap <Space>htb :TabOpenNew http://b.hatena.ne.jp/
+nmap <Space>gg :TabOpenNew https://www.google.co.jp/
+nmap <Space>ido :TabOpenNew https://atw.idoors.jp/iomanage.aspx?groupid=1280829034
+nmap <Space>aipo :TabOpenNew http://192.168.20.56/aipo/
+nmap <Space>ama :TabOpenNew http://www.amazon.co.jp/
+nmap <Space>git :TabOpenNew https://github.com/
+nmap <Space>gist :TabOpenNew https://gist.github.com/
+nmap <Space>tra :TabOpenNew https://translate.google.com/?hl=ja
+nmap <Space>sh :TabOpenNew http://transit.yahoo.co.jp/search/result?flatlon=&from=富山&tlatlon=&to=高岡&via=&via=&via=&y=&m=&d=&hh=&m2=&m1=&type=1&ticket=ic&al=1&shin=1&ex=1&hb=1&lb=1&sr=1&s=0&expkind=1&ws=2&kw=高岡
+# 社内で使用するサイトは個別に設定してください。
+
+
+
+# F for continuous f-Mode
+# this is recomended setting but commented out by default.
+# if you want to use this setting, use the following
+#nmap F :GoFMode --newtab --continuous
+
+# you can use <DISCARD> to discard the key so that chrome's default
+# action isn't triggered.
+#nmap <BS> <DISCARD>
+
+# if you want to change the key used to escape EmergencyMode mode,
+# use emap like the following
+#emap <ESC> :Escape
+
+## pagecmd offers you page specific key mapping.
+# in this example you can use <C-l>, <C-h> for moving between tabs
+# on all web pages regardless of your ignored list setting
+# because pagecmd has higher priority than ignored URLs.
+pagecmd * nmap <C-l> :TabFocusNext
+pagecmd * nmap <C-h> :TabFocusPrev
+
+# almost all Vichrome functions don't work properly for pdf contents
+# so it's useful to enable default key bindings for pdf file.
+pagecmd *.pdf nmap <C-f> <NOP>
+
+# if you want to use twitter web's key binding, write settings like below
+#pagecmd http*://twitter.com/* nmap f <NOP>
+#pagecmd http*://twitter.com/* nmap r <NOP>
