@@ -2,7 +2,7 @@
 "    Description: .vimrcサンプル設定
 "=============================================================================
 set nocompatible
-scriptencoding cp932
+scriptencoding uft-8
 " scriptencodingと、このファイルのエンコーディングが一致するよう注意！
 " scriptencodingは、vimの内部エンコーディングと同じものを推奨します。
 " 改行コードは set fileformat=unix に設定するとunixでも使えます。
