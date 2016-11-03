@@ -2,7 +2,7 @@
 "    Description: .vimrcサンプル設定
 "=============================================================================
 set nocompatible
-scriptencoding uft-8
+scriptencoding utf-8
 " scriptencodingと、このファイルのエンコーディングが一致するよう注意！
 " scriptencodingは、vimの内部エンコーディングと同じものを推奨します。
 " 改行コードは set fileformat=unix に設定するとunixでも使えます。
@@ -162,22 +162,20 @@ set listchars=tab:^\ ,trail:~
 " 起動時タブを表示する
 set showtabline=2
 
-let $DOC = "C:/Users/matsubara/Documents"
-
 " フォント設定
 "set guifont=MS_Gothic:h10.5
 "set guifontwide=MS_Gothic:h10.5
-set guifont=Ricty\ Diminished:h10.5
-set guifontwide=Ricty\ Diminished:h10.5
+set guifont=Ricty:h10.5
+set guifontwide=Ricty:h10.5
 
 " ハイライトを有効にする
 if &t_Co > 2 || has('gui_running')
   syntax on
 endif
 " 使用できる色の数
-"set t_Co=256    " 256色対応でないコンソールの場合はコメントにしとく
+set t_Co=256    " 256色対応でないコンソールの場合はコメントにしとく
 " 色テーマ設定
-" gvimの色テーマは.gvimrcで指定する
+" gvimの色テーマは.vimrcで指定する
 " colorscheme darkblue
 colorscheme molokai
 
@@ -398,13 +396,13 @@ map <silent> <leader>e :call ToggleVExplorer()<cr><c-w>p
 "---------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
-filetype off                   " Required!
+filetype plugin indent off                   " Required!
 
 if has('vim_starting')
-  set runtimepath+=$VIM\bundle\neobundle.vim
-  call neobundle#begin(expand('$VIM\bundle'))
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#begin(expand('~/.vim/bundle'))
   NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
+"  call neobundle#end()
 endif
 
 " originalrepos on github
@@ -416,7 +414,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/neosnippet'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree' 
@@ -432,7 +430,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tmhedberg/matchit'
-"NeoBundle 'tell-k/vim-browsereload-mac' MacOnly
+NeoBundle 'tell-k/vim-browsereload-mac'
 
 " 補完
 "NeoBundle 'taichouchou2/vim-rsense'
@@ -459,6 +457,7 @@ augroup PrevimSettings
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+call neobundle#end()
 filetype plugin indent on     " Required!
 syntax on
 
@@ -469,7 +468,7 @@ if neobundle#exists_not_installed_bundles()
   echomsg 'Please execute ":NeoBundleInstall" command.'
   "finish
 endif
-
 "----------------------------------------
 " 一時設定
 "----------------------------------------
+
