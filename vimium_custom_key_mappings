@@ -1,0 +1,9 @@
+map h goBack
+map l goForward
+map <c-h> previousTab
+map <c-l> nextTab
+map <c-d> scrollPageDown
+map <c-u> scrollPageUp
+map <c-w> removeTab
+map i LinkHints.activateMode
+map I LinkHints.activateModeToOpenInNewTab
